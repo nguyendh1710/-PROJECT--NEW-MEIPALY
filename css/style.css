@@ -1,0 +1,533 @@
+/* reset css  */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,body{
+    font-family: 'Oswald', sans-serif;
+    /* ho tro hieu ung cho back_to_top  */
+    scroll-behavior: smooth;
+}
+
+.container{
+    max-width: 1044px;
+    /* chinh margin cach deu 2 ben, ko tinh tren duoi  */
+    margin: 0 auto;
+ }
+
+header{
+    /* background-color: black;  */
+    position: absolute;
+    z-index: 5;
+    /* sau khi header nằm đè lên banner nhuwg chiều rộng bị thay đổi khsc với banđầu, chr cần dùng width 100% để dàn ra bằng chiều rộng body cha  */
+    width: 100%;
+ }
+
+ /* thuoc tinh moi thay the cho float:left là flex-box */
+ header .header_content{
+    display: flex;
+    /* can chinh truc ngang  */
+    justify-content: space-between;
+    /* can chinh truc doc  */
+    /* align-items: flex-end;
+    flex-direction: column;
+    height: 80vh; */
+    /* dao nguoc vi tri cac phan tu nhanh chong ma ko can sua html 
+    flex-direction: row-reverse; tren dong
+    hoac
+    flex-direction: column-reverse; tren cot */
+    padding: 40px 0;
+    align-items: center;
+    
+ }
+
+ /* header_logo */
+ header .header_logo a{
+    color: white;
+    text-decoration: none;
+    font-size: 40px;
+ }
+
+ header .header_nav ul{
+     list-style: none;
+ }
+
+ header .header_nav nav ul li{
+    display: inline;
+    margin-right: 15px;
+ }
+
+ header .header_nav li a{
+     text-decoration: none;
+     color: white;
+     font-size: 20px;
+     /* text-transform: uppercase; dung viet hoa viet thuong cac chus */
+     /* thoi gian chuyen dong cua hieu ung  */
+    transition: 1s all;
+ }
+
+.container .header_nav li a.active{
+    /* cach goi 1: .container .header_nav li a.active{}  */
+    /* cach goi 2: 
+    .container .header_nav li a{}
+    a.active{} */
+    color: red;
+}
+
+/* tao hiue ung chuyen mau hoac su kien hieu ung dung hover trong the a  */
+header .header_nav li a:hover{
+    color: red;
+    
+}
+
+
+/* banner  */
+.banner {
+    background-image: url(./../img/home_slider.jpg);
+    height: 80vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative; 
+}
+
+.banner .banner_content{
+
+    /* cach 1  */
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* phai truyen them height bang height cua pha tu cha can can chinh theo, neu ko align-items: center; ko xay ra hieu ung  */
+    height: 80vh;
+
+    /* cach 2: dung position: relative va position: absolute 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center; */
+}
+
+.banner .banner_content{
+    text-align: center;
+    color:white;
+    
+}
+
+.banner .banner_content p{
+    font-size: 20px;
+    line-height: 20.8px;
+    margin: 50px 0 0 0;
+}
+
+
+.banner .banner_content h1{
+    font-size: 75px;
+    line-height: 90px;
+    margin: 10px 0 20px 0;
+
+}
+
+.banner .banner_content button{
+     background-color: #e62b4a;
+     padding: 15px 30px;
+     text-transform: uppercase;
+     font-size: 16px;
+     color: white;
+     border: 0;
+     transition: 1s;
+     /* tao gia tri bieu trung hanh dong khi nguoi dung click vao  */
+     cursor: pointer;
+}
+
+.banner .banner_content button:hover{
+     background-color: #af2239;
+}
+
+
+/* TAO ANIMATION  */
+/* @keyframes giúp định nghĩa các hiệu ứng animation  */
+/* @keyframe + tên hiệu ứng (tiếng việt hay tiếng anh đều được */
+@keyframes arrowGoDown {
+    from{
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to{
+        opacity: 0;
+        transform: translateY(40px);
+    }
+}
+
+.banner .banner_content i {
+    /* animation-name: gọi tên hiệu ứng là tên mình tự đặt trong keyframe  */
+    /* animation-duration: tổn thời gian hiệu ứng chạy từ lúc bắt đầu đến lúc kết thúc  */
+    animation-name: arrowGoDown;
+    animation-duration: 2s;
+    /* animation-iteration-count: số lần lặp lại của hiệu ứng, nếu muốn hiệu ứng lặp lại vô tận fugn infinite  */
+    animation-iteration-count: infinite;
+}
+
+
+/* service  */
+.service{
+    background-color:rgb(7, 7, 7); 
+    padding: 60px 0;
+    text-align: center;
+    color: white;
+}
+
+.service .service_title .subtitile{
+    color: rgb(141, 48, 48);
+}
+
+.service .service_title h2{
+    font-size: 50px;
+    font-weight: 400;
+    color: white;
+}
+
+.service .service_title p:last-child{
+    color: grey;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.service .service_content .service_item{
+    padding: 25px 20px 10px 0;
+}
+
+.service .service_content .service_item .item_bg{
+    background-color: white;
+    color: grey;
+    height: 220px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.service_item .item_bg i{
+    font-size: 40px;
+}
+
+.service_item .item_bg p{
+    font-size: 18px;
+}
+
+.service_item .item_bg::after{
+    /* luu y khi su dung before/ after: khi sd phai co thuoc tinh content di kem */
+    content:" ";
+    width: 3px;
+    height: 0%;
+    background-color: #e62b4a;
+    position: absolute;
+    top: 0;
+    right: 0;
+    /* tao hieu ung cho thanh mau do  */
+    transition: 0.5s all;
+
+}
+
+.service_item .item_bg:hover::after{
+    height: 100%;
+}
+
+/* cach chinh sua tu code css cua thu vien slick carousel  */
+.service .slick-dots li button:before{
+    font-size: 12px;
+    color: rgb(255, 255, 255);
+}
+
+.service .slick-dots li.slick-active button::before{
+    color: rgb(203, 39, 39);
+}
+
+
+/* blog  */
+.blog{
+    text-align: center;
+    padding: 60px 0;
+}
+
+.blog .blog_title .sub_title{
+    font-size: 12px;
+    color:grey;
+}
+
+.blog_title h2{
+    font-size: 50px;
+    font-weight: 400;
+}
+
+.blog_title p{
+    color:grey;
+    font-weight: bold;
+}
+
+                  /* LAYOUT GRID QUAN TRỌNG      */
+ /* cac dan layout grid bang css  */
+.blog .blog_content{
+    display: grid;
+    margin-top: 50px;
+    /* grid-template-columns: 100px 200px 300px 400px 500px ;  */
+    /* (hoac chia 4 cot bang nhau)  */
+    grid-template-columns: repeat(4, 1fr);
+    /* thuoc tinh trong grid: gap chinh khoang cach can bang giua cac phan tu voi nhau, thay cho padding, co the dung gap cho ca flex-box  */
+    gap: 20px;
+}
+
+.blog .blog_content .blog_item img {
+    width: 100%;
+    height: 100%;
+    /* can doi hinh ko bi be khi chinh height vaf width  */
+    object-fit: cover;
+    /* chỉnh ảnh nhiều chế độ  */
+    filter:grayscale(60%) contrast(60%);
+}
+
+.blog .blog_content .blog_item:first-child {
+    /* grid_column dùng để gom cột: gt 1 là thứ tự cột muốn bắt đầu gom / span số cột muốn gom   */
+    grid-column: 1/ span 2;
+     /* grid_row dùng để gom cột: gt 1 là thứ tự dòng muốn bắt đầu gom / span số dòng muốn gom   */
+    grid-row: 1/ span 2;
+    
+}
+
+.blog .blog_content .blog_item:last-child {
+    grid-column: 3/ span 2;
+    grid-row: 3/ span 2;
+}
+
+.blog_content .blog_item{
+    position: relative;
+
+
+}
+
+.blog_content .blog_item .blog_overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(237, 26, 62, 0.567);
+   
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    opacity: 0;
+    transition: 0.5s all;
+}
+
+.blog_item .blog_overlay .blog_icon{
+    text-align: right;
+}
+
+.blog_item .blog_overlay .blog_text{
+    text-align: left;
+    color: white;
+}
+
+.blog_item:hover .blog_overlay{
+    opacity: 1;
+    
+}
+
+.blog_item .blog_overlay .blog_icon i{
+    background-color: white;
+    padding: 10px;
+    transform: translateY(30px);
+    color: black;
+    transition: 0.5s all;
+}
+
+.blog_item:hover .blog_icon i{
+    transform: translateY(0);
+}
+
+.blog_item .blog_overlay .blog_text{
+    transform: translateY(30px);
+    transition: 0.5s all;
+}
+
+.blog_item:hover .blog_text{
+    transform: translateY(0);
+}
+
+
+/* number  */
+.number{
+    background-color: black;
+    padding: 60px 0;
+    color: white;
+}
+
+.number .number_content{
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.number_content .number_item h3{
+    font-size: 50px;
+    font-weight:100 ;
+}
+
+.number_content .number_item p{
+    color: grey;
+    font-size: 18px;
+}
+
+/* CÀI ĐẶT VÀ TẠO THƯ VIỆN CHẠY SỐ  */
+
+
+/* experience  */
+.exp{
+    background-image: url(./../img/bussiness_img_1.jpg);
+    padding: 60px 0;
+    background-repeat: no-repeat;
+    color: white;
+    background-size: cover;
+    text-align: center;
+    /* khóa background nằm theo vùng nhìn đến khi qua section khác mới hết  */
+    background-attachment: fixed;
+}
+
+.exp .exp_title .sub_title{
+    color: red;
+    font-size: 12px;
+}
+
+.exp .exp_title h2{
+    font-size: 45px;
+    margin-bottom: 15px;
+    font-weight: lighter;
+}
+
+.exp .exp_title p {
+    color: grey;
+    font-weight: bold;
+}
+
+
+/* contact  */
+.contact{
+    padding: 60px 0;
+    text-align: center;
+}
+
+.contact .contact_title h2{
+    text-transform: uppercase;
+    font-size: 50px;
+    font-weight:400;
+}
+
+.contact .contact_title p{
+    color:grey;
+    margin: 30px 0;
+}
+
+.contact .contact_content{
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.contact .contact_content .contact_form form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100% ;
+}
+
+.contact .contact_content .contact_map{
+     width: 60%;
+}
+
+.contact .contact_content .contact_form{
+    width: 40%;
+}
+
+.contact .contact_content .contact_form form input, textarea{
+    padding: 15px;
+}
+
+.contact .contact_content .contact_form form button{
+    padding: 20px;
+    background-color: black;
+    color: white;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: 0.5s all;
+}
+
+.contact .contact_content .contact_form form button:hover{
+    background-color: #af2239;
+}
+
+/* mui ten nam goc phai  */
+/* back_to_top  */
+
+.back_to_top{
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    background-color: #e62b4a;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.back_to_top a{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    color: white;
+}
+
+
+/* footer  */
+footer{
+    background-color: black;
+    padding: 100px 0;
+    color: white;
+}
+
+footer .footer_cover{
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+footer .footer_cover .footer_content {
+    display: flex;
+    gap: 0 10px;
+    font-weight: 100;
+    font-size: 15px;
+    padding-top: 10px;
+}
+
+footer .footer_cover .footer_content i{
+    margin-top: 4px;
+}
+
+footer .footer_cover .footer_icon i{
+    background-color: rgba(128, 128, 128, 0.552);
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border:none;
+    border-radius: 50%;
+    padding-top: -10px;
+    margin: 0 4px;
+}
